@@ -61,7 +61,7 @@ LOOP:
 					for i, image := range video.Images {
 						photo := &telebot.Photo{File: telebot.FromURL(image)}
 						if i == 0 {
-							photo.Caption = fmt.Sprintf("@%s: %s", video.AuthorUsername, video.Title)
+							photo.Caption = fmt.Sprintf("%s", video.AuthorUsername, video.Title)
 						}
 
 						photoAlbum[i] = photo
