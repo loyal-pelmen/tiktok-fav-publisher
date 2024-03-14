@@ -24,8 +24,9 @@ type ServiceApi struct {
 type Videos []Video
 
 type Video struct {
-	ID             string `json:"video_id"`
-	Title          string `json:"title"`
+	ID             string   `json:"video_id"`
+	Title          string   `json:"title"`
+	Images         []string `json:"images"`
 	AuthorUsername string
 	DownloadLink   string
 	ShareableLink  string
@@ -49,6 +50,7 @@ type videoInfoResponse struct {
 		Author      struct {
 			ID string `json:"unique_id"`
 		} `json:"author"`
+		Images []string `json:"images"`
 	}
 }
 
