@@ -1,7 +1,6 @@
 package worker
 
 import (
-	"fmt"
 	"github.com/exceptioon/tiktok-fav-publisher/internal"
 	"github.com/exceptioon/tiktok-fav-publisher/internal/tiktok"
 	"go.uber.org/zap"
@@ -60,9 +59,9 @@ LOOP:
 
 					for i, image := range video.Images {
 						photo := &telebot.Photo{File: telebot.FromURL(image)}
-						if i == 0 {
-							photo.Caption = fmt.Sprintf("%s", video.AuthorUsername, video.Title)
-						}
+						// if i == 0 {
+						// 	photo.Caption = fmt.Sprintf("%s", video.AuthorUsername, video.Title)
+						// }
 
 						photoAlbum[i] = photo
 					}
@@ -76,7 +75,7 @@ LOOP:
 					_, err = w.TG.Bot.Send(telebot.ChatID(w.TG.ChatID),
 						&telebot.Video{
 							File:    telebot.File{FileURL: video.DownloadLink},
-							Caption: fmt.Sprintf("@%s: %s", video.AuthorUsername, video.Title),
+							// Caption: fmt.Sprintf("@%s: %s", video.AuthorUsername, video.Title),
 						}, menu)
 
 					if err != nil {
